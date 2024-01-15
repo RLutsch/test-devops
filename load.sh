@@ -7,3 +7,7 @@ else
     echo "$(date +"%Y-%m-%d %H:%M:%S") No changes in the Git repository" >> /var/log/cron.log
     exit 0
 fi
+
+echo "$(date +"%Y-%m-%d %H:%M:%S") Copy nginx.conf to Nginx configuration">> /var/log/cron.log
+sudo cp nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
+sudo systemctl restart nginx
