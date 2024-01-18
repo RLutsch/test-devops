@@ -18,7 +18,7 @@ def create_pressed_table():
         cur = conn.cursor()
 
         # Check if a row exists in the "pressed" table
-        cur.execute("CREATE TABLE IF NOT EXISTS pressed (count INTEGER;")
+        cur.execute("CREATE TABLE IF NOT EXISTS pressed (count INTEGER);")
 
         cur.execute("SELECT 1 FROM pressed LIMIT 1;")
 
