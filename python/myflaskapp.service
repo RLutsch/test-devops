@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/root/test-devops/python
-ExecStart=/root/test-devops/python/venv/bin/python /root/test-devops/python/app.py
+WorkingDirectory=/home/ubuntu/test-devops/python
+ExecStart=/home/ubuntu/test-devops/python/venv/bin/python /home/ubuntu/test-devops/python/app.py
 
 [Install]
 WantedBy=multi-user.target
