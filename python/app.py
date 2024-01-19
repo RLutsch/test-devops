@@ -1,14 +1,15 @@
 from flask import Flask, jsonify
 import psycopg2
+import os
 
 app = Flask(__name__)
 
 # Database connection parameters
 db_params = {
-    "dbname": "dbname",
-    "user": "youruser",
-    "password": "yourpassword",
-    "host": "postgres",  # Change this if your database is on a different host
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "host": os.getenv("DB_HOST"),
 }
 
 # Function to create the "pressed" table
