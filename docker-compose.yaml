@@ -5,8 +5,8 @@ services:
     image: postgres:latest
     environment:
       POSTGRES_DB: dbname
-      POSTGRES_USER: dbuser
-      POSTGRES_PASSWORD: dbpassword
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
     networks:
       - mynetwork
 
@@ -17,12 +17,12 @@ services:
       - "5000:5000"
     environment:
       - DB_NAME=dbname
-      - DB_USER=dbuser
-      - DB_PASSWORD=dbpassword
+      - DB_USER=youruser
+      - DB_PASSWORD=yourpassword
       - DB_HOST=postgres
     depends_on:
       - postgres
-    command: bash -c 'until psql -U dbuser -h postgres -p 5432 -qt; do sleep 1; done; python app.py'
+    command: bash -c 'until curl -s --output /dev/null -o /dev/null --fail http://localhost:5432; do sleep 1; done && echo "Postgres is up - continuing with command'
     networks:
       - mynetwork
 
