@@ -6,8 +6,8 @@ app = Flask(__name__)
 # Database connection parameters
 db_params = {
     "dbname": "dbname",
-    "user": "dbuser",
-    "password": "dbpassword",
+    "user": "youruser",
+    "password": "yourpassword",
     "host": "postgres",  # Change this if your database is on a different host
 }
 
