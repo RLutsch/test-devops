@@ -8,8 +8,5 @@ else
     exit 0
 fi
 
-echo "docker-compose down" >> /var/log/cron.log
-docker-compose down >> /var/log/cron.log
-echo "docker-compose build" >> /var/log/cron.log
-docker-compose --build >> /var/log/cron.log
-docker-compose up -d 
+echo "$(date +"%Y-%m-%d %H:%M:%S") docker-compose restart" >> /var/log/cron.log
+sudo docker-compose up  --build -d
