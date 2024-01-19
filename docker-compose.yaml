@@ -22,6 +22,7 @@ services:
       - DB_HOST=postgres
     depends_on:
       - postgres
+    command: ["./wait-for-it.sh", "postgres:5432", "--", "python", "app.py"]
     networks:
       - mynetwork
 
