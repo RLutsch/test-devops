@@ -8,15 +8,8 @@ else
     exit 0
 fi
 
-echo "$(date +"%Y-%m-%d %H:%M:%S") Copy nginx.conf to Nginx configuration">> /var/log/cron.log
-sudo cp nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
-sudo systemctl restart nginx
-
-# add before the reload line
-echo "$(date +"%Y-%m-%d %H:%M:%S") Copy index.html to Nginx document root">> /var/log/cron.log
-sudo cp nginx/index.html /var/www/html/
-
-# run flask app as a service
-echo "$(date +"%Y-%m-%d %H:%M:%S") Run Flask app on port 5000">> /var/log/cron.log
-cd python
-sudo systemctl restart myflaskapp
+echo "docker-compose down" >> /var/log/cron.log
+docker-compose down >> /var/log/cron.log
+echo "docker-compose build" >> /var/log/cron.log
+docker-compose --build >> /var/log/cron.log
+docker-compose up -d 
