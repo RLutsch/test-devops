@@ -22,7 +22,7 @@ services:
       - DB_HOST=postgres
     depends_on:
       - postgres
-    command: bash -c 'until curl -s --output /dev/null -o /dev/null --fail http://localhost:5432; do sleep 1; done && echo "Postgres is up - continuing with command'
+    command: bash -c 'sleep 10 && python app.py'
     networks:
       - mynetwork
 
